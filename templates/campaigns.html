@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Campaigns</h2>
+<a href="/add_campaign" class="btn btn-primary mb-3">Add Campaign</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Target Amount</th>
+    </tr>
+
+    {% for campaign in campaigns %}
+    <tr>
+        <td>{{ campaign.title }}</td>
+        <td>{{ campaign.description }}</td>
+        <td>₹ {{ campaign.target_amount }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

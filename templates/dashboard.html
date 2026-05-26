@@ -1,0 +1,107 @@
+ {% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="fw-bold mb-4">Dashboard</h1>
+
+<div class="row g-4">
+
+    <div class="col-md-3">
+        <div class="card border-0 shadow-lg rounded-4 p-4 bg-success text-white">
+
+            <h5>Total Donations</h5>
+            <h2>₹ {{ total_donation }}</h2>
+
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-0 shadow-lg rounded-4 p-4 bg-primary text-white">
+
+            <h5>Volunteers</h5>
+            <h2>{{ volunteers|length }}</h2>
+
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-0 shadow-lg rounded-4 p-4 bg-warning text-dark">
+
+            <h5>Campaigns</h5>
+            <h2>{{ campaigns|length }}</h2>
+
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-0 shadow-lg rounded-4 p-4 bg-dark text-white">
+
+            <h5>Events</h5>
+            <h2>{{ events|length }}</h2>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="row mt-5 g-4">
+
+    <div class="col-md-3">
+        <a href="/donations"
+           class="text-decoration-none">
+
+            <div class="card shadow border-0 rounded-4 p-4 text-center">
+
+                <h3>💰</h3>
+                <h5>Manage Donations</h5>
+
+            </div>
+
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/volunteers"
+           class="text-decoration-none">
+
+            <div class="card shadow border-0 rounded-4 p-4 text-center">
+
+                <h3>🤝</h3>
+                <h5>Volunteers</h5>
+
+            </div>
+
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/campaigns"
+           class="text-decoration-none">
+
+            <div class="card shadow border-0 rounded-4 p-4 text-center">
+
+                <h3>📢</h3>
+                <h5>Campaigns</h5>
+
+            </div>
+
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/events"
+           class="text-decoration-none">
+
+            <div class="card shadow border-0 rounded-4 p-4 text-center">
+
+                <h3>📅</h3>
+                <h5>Events</h5>
+
+            </div>
+
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

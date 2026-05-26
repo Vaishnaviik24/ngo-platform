@@ -1,0 +1,36 @@
+body{
+    background: #f4f7fb;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.card{
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+.navbar{
+    padding: 15px 0;
+}
+
+.btn{
+    transition: 0.3s;
+}
+
+.btn:hover{
+    transform: scale(1.05);
+}
+
+table{
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.hero-section{
+    background: linear-gradient(to right, #11998e, #38ef7d);
+    color: white;
+    border-radius: 25px;
+    padding: 60px;
+}
