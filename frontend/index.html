@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SevaSetu - Professional NGO Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Decent & Clean Professional Color Palette */
+      --primary: #2563eb;          /* Professional Royal Blue */
+      --primary-hover: #1d4ed8;
+      --accent: #0ea5e9;           /* Soft Sky Blue */
+      --bg-color: #f8fafc;         /* Very Light Slate-White Background */
+      --surface-color: #ffffff;    /* Pure White Cards */
+      --surface-muted: #f1f5f9;    /* Light Grayish Input/Box Background */
+      --text-main: #1e293b;        /* Deep Slate for High Readability */
+      --text-muted: #64748b;       /* Muted Gray for Subtext */
+      --border-color: #cbd5e1;     /* Clean Soft Border */
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--surface-color);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+      color: #0f172a;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* Real-Time Metrics Banner */
+    .stats-banner {
+      max-width: 1000px;
+      margin: -2.5rem auto 3rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card h3 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Sections */
+    section {
+      max-width: 1100px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.8rem;
+      letter-spacing: -0.5px;
+      color: #0f172a;
+    }
+
+    /* Operational Panels */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .panel {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .panel h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      color: #0f172a;
+    }
+
+    .panel p.desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    input, select {
+      flex: 1;
+      min-width: 220px;
+      background: var(--surface-muted);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    input:focus {
+      border-color: var(--primary);
+      background: white;
+    }
+
+    .btn-action {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .btn-action:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-action:active {
+      transform: scale(0.98);
+    }
+
+    .results-area {
+      background: var(--surface-muted);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      max-height: 280px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    .result-item {
+      background: white;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--border-color);
+      font-size: 0.9rem;
+    }
+
+    .badge {
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Skill Gap Matrix */
+    .skill-gap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      padding: 1.8rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card h4 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .skill-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: var(--shadow);
+    }
+
+    #contactForm {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    #contactForm input, #contactForm textarea {
+      width: 100%;
+      background: var(--surface-muted);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    #contactForm input:focus, #contactForm textarea:focus {
+      border-color: var(--primary);
+      background: white;
+    }
+
+    #contactForm textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      background: var(--surface-color);
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">SevaSetu</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#features">Console</a></li>
+        <li><a href="#skills">Skill Matrix</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Real-Time NGO <span>Volunteer Intelligence</span></h1>
+      <p>Empowering communities with smart match allocation, instant team orchestration, and precise operational insights.</p>
+      <button class="btn-action" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">Launch Console</button>
+    </div>
+  </section>
+
+  <!-- Real-Time Metrics Banner -->
+  <div class="stats-banner">
+    <div class="stat-card">
+      <h3>1,000+</h3>
+      <p>Registered Volunteers</p>
+    </div>
+    <div class="stat-card">
+      <h3>36</h3>
+      <p>Maharashtra Districts</p>
+    </div>
+    <div class="stat-card">
+      <h3 style="color: #16a34a;">Active</h3>
+      <p>System Engine Status</p>
+    </div>
+  </div>
+
+  <!-- Interactive Live Features Section -->
+  <section id="features">
+    <h2>Operational Console</h2>
+    
+    <div class="dashboard-grid">
+      <!-- Feature 1: Skill & District Matcher -->
+      <div class="panel">
+        <h3>🔍 Skill & District Matcher</h3>
+        <p class="desc">Instantly query the database to source verified community volunteers.</p>
+        <div class="form-row">
+          <input type="text" id="skillInput" placeholder="Skill (e.g., Teaching, Medical)">
+          <input type="text" id="districtInput" placeholder="District (e.g., Pune, Mumbai)">
+          <button class="btn-action" onclick="searchVolunteers()">Execute Search</button>
+        </div>
+        <div id="volunteerResults" class="results-area"></div>
+      </div>
+
+      <!-- Feature 2: AI Team Formation -->
+      <div class="panel">
+        <h3>⚡ Automated Team Orchestrator</h3>
+        <p class="desc">Deploy algorithmically grouped multi-volunteer crews for rapid event responses.</p>
+        <div class="form-row">
+          <input type="text" id="teamSkillInput" placeholder="Required Specialization">
+          <input type="number" id="teamSizeInput" placeholder="Team Size (e.g. 5)" value="5">
+          <button class="btn-action" onclick="formTeam()">Deploy Team</button>
+        </div>
+        <div id="teamResults" class="results-area"></div>
+      </div>
+
+      <!-- Feature 3: Real-time Volunteer Engagement Tracker -->
+      <div class="panel">
+        <h3>📊 Engagement Lookup</h3>
+        <p class="desc">Analyze historical contribution metrics and task engagement status profiles.</p>
+        <div class="form-row">
+          <input type="number" id="volIdInput" placeholder="Enter Volunteer ID (e.g., 1)" value="1">
+          <button class="btn-action" onclick="checkEngagement()">Fetch Profile</button>
+        </div>
+        <div id="engagementResults" class="results-area"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skill Gap Analysis Section -->
+  <section id="skills">
+    <h2>Skill Gap & Upskilling Engine</h2>
+    <div class="skill-gap-grid" id="skillGapContainer">
+      <!-- Populated dynamically via backend API -->
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Collaborate With Us</h2>
+    <div class="contact-container">
+      <form id="contactForm" onsubmit="event.preventDefault(); alert('Transmission confirmed! Our team will reach out.');">
+        <input type="text" placeholder="Organization / Full Name" required>
+        <input type="email" placeholder="Official Email Address" required>
+        <textarea placeholder="Describe your resource or volunteer coordination requirement..." required></textarea>
+        <button type="submit" class="btn-action" style="width: 100%;">Transmit Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 SevaSetu Intelligence Platform. All rights reserved.</p>
+  </footer>
+
+  <!-- Real-Time JavaScript Connectors -->
+  <script>
+    // Load Skill Gap Recommendations dynamically on page load
+    window.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const res = await fetch('/api/skill_gap');
+        const data = await res.json();
+        const container = document.getElementById('skillGapContainer');
+        
+        container.innerHTML = Object.entries(data).map(([skill, recommendation]) => `
+          <div class="skill-card">
+            <h4>Domain: ${skill}</h4>
+            <p>${recommendation}</p>
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error("Could not load skill gap telemetry", err);
+      }
+    });
+
+    async function searchVolunteers() {
+      const skill = document.getElementById('skillInput').value;
+      const district = document.getElementById('districtInput').value;
+      const resultBox = document.getElementById('volunteerResults');
+
+      const response = await fetch('/api/skilled_volunteers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ skill, district })
+      });
+      const data = await response.json();
+
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = data.length ? data.map(v => `
+        <div class="result-item">
+          <span><strong>${v.Volunteer_Name}</strong> (${v.District || 'Maharashtra'})</span>
+          <span class="badge">${v.Primary_Skill}</span>
+        </div>
+      `).join('') : '<div class="result-item" style="justify-content:center; color:#64748b;">No matching records located in database.</div>';
+    }
+
+    async function formTeam() {
+      const skill = document.getElementById('teamSkillInput').value;
+      const team_size = parseInt(document.getElementById('teamSizeInput').value) || 5;
+      const resultBox = document.getElementById('teamResults');
+
+      const response = await fetch('/api/form_team', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ skill, team_size })
+      });
+      const data = await response.json();
+
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = data.length ? data.map(v => `
+        <div class="result-item">
+          <span><strong>${v.Volunteer_Name}</strong> (${v.District || 'Maharashtra'})</span>
+          <span class="badge">${v.Primary_Skill}</span>
+        </div>
+      `).join('') : '<div class="result-item" style="justify-content:center; color:#64748b;">Team constraints could not be resolved.</div>';
+    }
+
+    async function checkEngagement() {
+      const volId = document.getElementById('volIdInput').value || 1;
+      const resultBox = document.getElementById('engagementResults');
+
+      const response = await fetch(`/api/volunteer_engagement/${volId}`);
+      const data = await response.json();
+
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = `
+        <div class="result-item">
+          <span>Logged Contribution Hours</span>
+          <span class="badge">${data.hours_logged} Hours</span>
+        </div>
+        <div class="result-item">
+          <span>Events Participated</span>
+          <span class="badge">${data.events_participated} Events</span>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
