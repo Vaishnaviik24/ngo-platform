@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Volunteers</h2>
+<a href="/add_volunteer" class="btn btn-warning mb-3">Add Volunteer</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Skills</th>
+    </tr>
+
+    {% for volunteer in volunteers %}
+    <tr>
+        <td>{{ volunteer.name }}</td>
+        <td>{{ volunteer.phone }}</td>
+        <td>{{ volunteer.skills }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

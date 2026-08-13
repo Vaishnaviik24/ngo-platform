@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Add Campaign</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    {{ form.title.label }}
+    {{ form.title(class="form-control") }}
+
+    {{ form.description.label }}
+    {{ form.description(class="form-control") }}
+
+    {{ form.target_amount.label }}
+    {{ form.target_amount(class="form-control") }}
+
+    <br>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}
